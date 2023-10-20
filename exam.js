@@ -11,58 +11,58 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.use(cors())
-// app.get("/hitung", (req,res) => {
+app.get("/hitung", (req,res) => {
 
-//     // menampung data yang dikirimkan
-//     const satuan = req.params.style // mengambil nilai pada parameter name
-//     const data = req.params.data // mengambil nilai pada parameter age
+    // menampung data yang dikirimkan
+    const satuan = req.params.style // mengambil nilai pada parameter name
+    const data = req.params.data // mengambil nilai pada parameter age
 
-//     let result;
-//         const results = {};
-//         const sp = {
-//           km: 1,
-//           hm: 10,
-//           dam: 100,
-//           m: 1000,
-//           dm: 10000,
-//           cm: 100000,
-//           mm: 1000000
-//         };
+    let result;
+        const results = {};
+        const sp = {
+          km: 1,
+          hm: 10,
+          dam: 100,
+          m: 1000,
+          dm: 10000,
+          cm: 100000,
+          mm: 1000000
+        };
       
-//         if (satuan == "mm") {
-//           result = data / 1000000;
-//         }
-//         else if (satuan == "cm") {
-//           result = data / 100000;
-//         }
-//         else if (satuan == "dm") {
-//           result = data / 10000;
-//         }
-//         else if (satuan == "m") {
-//           result = data / 1000;
-//         }
-//         else if (satuan == "dam") {
-//           result = data / 100;
-//         }
-//         else if (satuan == "hm") {
-//           result = data / 10;
-//         }
-//         else{
-//           result = data
-//         }
+        if (satuan == "mm") {
+          result = data / 1000000;
+        }
+        else if (satuan == "cm") {
+          result = data / 100000;
+        }
+        else if (satuan == "dm") {
+          result = data / 10000;
+        }
+        else if (satuan == "m") {
+          result = data / 1000;
+        }
+        else if (satuan == "dam") {
+          result = data / 100;
+        }
+        else if (satuan == "hm") {
+          result = data / 10;
+        }
+        else{
+          result = data
+        }
       
-//         for (const p in sp) {
-//           results[p] = result * sp[p];
-//         }
+        for (const p in sp) {
+          results[p] = result * sp[p];
+        }
 
-//     let response = {
-//         satuan: style,
-//         data: data
-//     }
+    let response = {
+        satuan: style,
+        data: data
+    }
 
 
-//     res.json(response)
-// })
+    res.json(response)
+})
 app.post("/dicari", (req,res) => {
   let cari= req.params.type
   let soal1= Number(req.params.var1)
